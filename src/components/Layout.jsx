@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { NavLink, Outlet } from 'react-router-dom';
 import UserMenu from './UserMenu';
 import '../index.css';
+import { Navigation } from './Navigation';
+import { useSelector } from 'react-redux';
+
 const StyledLink = styled(NavLink)`
   color: black;
   text-decoration: none;
@@ -12,24 +15,19 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Layout = () => {
-  const isLoggedIn = false;
+  const { isLoggedIn } = useSelector(state => state.auth);
   return (
     <div>
-      <header>
-        <nav className=" HeaderNav">
-          <StyledLink to="/" end>
-            Home
-          </StyledLink>
-
-          {isLoggedIn ? (
-            <UserMenu />
-          ) : (
-            <div className="HeaderLogin">
-              <StyledLink to="/register">Register</StyledLink>
-              <StyledLink to="/login">Log In</StyledLink>
-            </div>
-          )}
-        </nav>
+      <header className=" HeaderNav">
+        <Navigation />
+        {isLoggedIn ? (
+          <UserMenu />
+        ) : (
+          <div className="HeaderLogin">
+            <StyledLink to="/register">Register</StyledLink>
+            <StyledLink to="/login">Log In</StyledLink>
+          </div>
+        )}
       </header>
       <main>
         <Outlet />
