@@ -36,7 +36,7 @@ export default function NewContact() {
     dispatch(
       addContact({
         name: name,
-        phone: number,
+        number: number,
       })
     );
 
