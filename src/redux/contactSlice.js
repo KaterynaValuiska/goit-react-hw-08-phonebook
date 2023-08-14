@@ -15,8 +15,8 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const tasksSlice = createSlice({
-  name: 'tasks',
+const contactsSlice = createSlice({
+  name: 'contacts',
   initialState: {
     items: [],
     isLoading: false,
@@ -55,4 +55,4 @@ const tasksSlice = createSlice({
   },
 });
 
-export const tasksReducer = tasksSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;
