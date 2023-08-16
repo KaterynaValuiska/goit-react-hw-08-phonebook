@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[415],{415:function(e,t,o){o.r(t);var c=o(0),n=(o(174),o(184));t.default=function(){return(0,n.jsxs)("div",{style:{height:"100vh",display:"flex",flexDirection:"column",alignItems:"center",paddingTop:50,fontSize:40,color:"#010101"},children:["Your contact book. Welcome.",(0,n.jsx)(c.efA,{className:"IconHome"})]})}}}]);
+//# sourceMappingURL=415.7f92d0d7.chunk.js.map
