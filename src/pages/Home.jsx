@@ -15,7 +15,7 @@ const Home = () => {
         color: '#010101',
       }}
     >
-      Your contact book. Welcome.
+      Welcome, this is your contact book.
       <FcContacts className="IconHome" />
     </div>
   );
