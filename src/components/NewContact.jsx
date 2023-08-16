@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../redux/contactOperations';
-import { type } from '@testing-library/user-event/dist/type';
 
 export default function NewContact() {
   const contacts = useSelector(state => state.contacts.items);
