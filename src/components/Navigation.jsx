@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
 const StyledLink = styled(NavLink)`
-  color: black;
+  color: var(--color);
   text-decoration: none;
 
   &.active {

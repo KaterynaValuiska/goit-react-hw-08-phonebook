@@ -5,6 +5,8 @@ import '../index.css';
 import { Navigation } from './Navigation';
 import { useSelector } from 'react-redux';
 import { Suspense } from 'react';
+import { ThemeContext, themes } from './ThemeContext';
+import Toggle from '../components/Togle/index';
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -18,9 +20,22 @@ const StyledLink = styled(NavLink)`
 const Layout = () => {
   const { isLoggedIn } = useSelector(state => state.auth);
   return (
-    <div>
+    <div className="Main">
       <header className=" HeaderNav">
-        <Navigation />
+        <div className=" HeaderNavTema">
+          <ThemeContext.Consumer>
+            {({ theme, setTheme }) => (
+              <Toggle
+                onChange={() => {
+                  if (theme === themes.light) setTheme(themes.dark);
+                  if (theme === themes.dark) setTheme(themes.light);
+                }}
+                value={theme === themes.dark}
+              />
+            )}
+          </ThemeContext.Consumer>
+          <Navigation />
+        </div>
         {isLoggedIn ? (
           <UserMenu />
         ) : (

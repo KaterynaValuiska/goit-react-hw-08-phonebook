@@ -12,7 +12,7 @@ const Home = () => {
         alignItems: 'center',
         paddingTop: 50,
         fontSize: 40,
-        color: '#010101',
+        color: 'var(--color)',
       }}
     >
       Welcome, this is your contact book.
