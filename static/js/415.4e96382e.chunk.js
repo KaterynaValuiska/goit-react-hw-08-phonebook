@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[415],{415:function(e,t,o){o.r(t);var n=o(184);t.default=function(){return(0,n.jsx)("div",{style:{height:"100vh",display:"flex",justifyContent:"center",paddingTop:50,fontSize:40,color:"#010101"},children:"Your contact book. Welcome."})}}}]);
+//# sourceMappingURL=415.4e96382e.chunk.js.map
