@@ -20,7 +20,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <b className="FormRegister">Refreshing user...</b>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

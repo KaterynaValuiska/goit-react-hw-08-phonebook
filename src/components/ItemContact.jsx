@@ -18,7 +18,7 @@ export default function ItemContact({ id, name, number, onClose }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="NewContact">
+    <form onSubmit={handleSubmit} className="ItemContact">
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Name{' '}
