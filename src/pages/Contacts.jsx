@@ -1,9 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchContacts, deleteContact } from '../redux/contactOperations';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NewContact from '../components/NewContact';
+import { Modal } from 'components/Modal';
+import ItemContact from 'components/ItemContact';
 
 function Contacts() {
+  const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [id, setId] = useState('');
   const { items, isLoading } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
@@ -12,19 +18,28 @@ function Contacts() {
   };
 
   const onUpdateContact = ({ id, name, number }) => {
-    console.log(id, name, number);
+    toggleModal();
+    setName(name);
+    setNumber(number);
+    setId(id);
   };
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
   return (
     <div className="Contact">
       <NewContact />
       <div>
         <h2>Your contacts</h2>
+
         <div>{isLoading && 'Request in progress...'}</div>
+        {Array.isArray(items) && items.length <= 0 && (
+          <p> There are no contacts. You can add your contacts. </p>
+        )}
         <ul className="ContactList">
           {items.map(({ name, number, id }) => (
             <li key={id}>
@@ -50,6 +65,16 @@ function Contacts() {
           ))}
         </ul>
       </div>
+      {showModal && (
+        <Modal onClose={toggleModal}>
+          <ItemContact
+            id={id}
+            name={name}
+            number={number}
+            onClose={toggleModal}
+          />
+        </Modal>
+      )}
     </div>
   );
 }

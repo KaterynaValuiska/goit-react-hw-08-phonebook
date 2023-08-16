@@ -1,52 +1,36 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../redux/contactOperations';
+import { type } from '@testing-library/user-event/dist/type';
 
 export default function NewContact() {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
   const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
-  const handleInputChange = evt => {
-    const { name, value } = evt.target;
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        alert('name or number entered incorrectly');
-        return;
-    }
-  };
 
   const handleSubmit = evt => {
     evt.preventDefault();
+    const nameContact = evt.target.elements.name.value;
     if (
       contacts.find(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
+        contact => contact.name.toLowerCase() === nameContact.toLowerCase()
       )
     ) {
-      alert(`${name} is already in contacts.`);
+      alert(`${nameContact} is already in contacts.`);
       return;
     }
 
     dispatch(
       addContact({
-        name: name,
-        number: number,
+        name: nameContact,
+        number: evt.target.elements.number.value,
       })
     );
-
-    setName('');
-    setNumber('');
+    evt.target.reset();
   };
 
   return (
     <div>
       <h2>Create a contact</h2>
+
       <form onSubmit={handleSubmit} className="NewContact">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -54,8 +38,6 @@ export default function NewContact() {
             <input
               type="text"
               name="name"
-              value={name}
-              onChange={handleInputChange}
               pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
@@ -70,8 +52,6 @@ export default function NewContact() {
             <input
               type="tel"
               name="number"
-              value={number}
-              onChange={handleInputChange}
               pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
