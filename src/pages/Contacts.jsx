@@ -11,29 +11,45 @@ function Contacts() {
     dispatch(deleteContact(id));
   };
 
+  const onUpdateContact = ({ id, name, number }) => {
+    console.log(id, name, number);
+  };
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="Contact">
       <NewContact />
-      <h2>Contacts</h2>
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ul>
-        {items.map(({ name, phone, id }) => (
-          <li key={id}>
-            {name}: {phone}
-            {'  '}
-            <button
-              type="button"
-              className="btn-close"
-              aria-label="Close"
-              onClick={() => onDeleteContact(id)}
-            ></button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h2>Your contacts</h2>
+        <div>{isLoading && 'Request in progress...'}</div>
+        <ul className="ContactList">
+          {items.map(({ name, number, id }) => (
+            <li key={id}>
+              {name}: {number}
+              {'  '}
+              <button
+                type="button"
+                className="btn btn-primary BtnDelete"
+                aria-label="Close"
+                onClick={() => onDeleteContact(id)}
+              >
+                delete
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary BtnDelete"
+                aria-label="Close"
+                onClick={() => onUpdateContact({ id, name, number })}
+              >
+                update
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

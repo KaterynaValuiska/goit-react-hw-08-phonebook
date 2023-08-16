@@ -5,9 +5,13 @@ const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(state => state.auth);
   return (
-    <div>
-      <p>Welkome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOut())}>
+    <div className="UserMenu">
+      <p className="UserMenuText">Welkome, {user.name}</p>
+      <button
+        type="button"
+        onClick={() => dispatch(logOut())}
+        className="UserMenuBtn"
+      >
         Logout
       </button>
     </div>

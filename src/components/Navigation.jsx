@@ -15,7 +15,7 @@ export const Navigation = () => {
   const { isLoggedIn } = useSelector(state => state.auth);
 
   return (
-    <nav>
+    <nav className="Navigation">
       <StyledLink to="/">Home</StyledLink>
       {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
     </nav>

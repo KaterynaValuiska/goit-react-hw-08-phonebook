@@ -20,6 +20,7 @@ code {
   margin: 0 auto;
   padding: 16px;
   background-color: beige;
+  align-items: center;
 }
 
 .HeaderLogin {
@@ -30,4 +31,51 @@ code {
 .FormRegister {
   margin: 0 auto;
   padding: 16px;
+}
+
+.UserMenu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.UserMenuBtn {
+  background-color: beige;
+  border-radius: 10px;
+  border: 2px solid orange;
+  padding: 6px;
+}
+.UserMenuBtn:hover,
+.UserMenuBtn:focus {
+  background-color: orange;
+  color: aliceblue;
+}
+.UserMenuText {
+  margin: 0;
+  font-weight: 600;
+}
+
+.Navigation {
+  display: flex;
+  gap: 20px;
+}
+
+.NewContact {
+  padding: 16px;
+}
+
+.Contact {
+  display: flex;
+  gap: 80px;
+  padding: 16px;
+}
+
+.ContactList {
+  padding: 16px;
+}
+
+.BtnDelete {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 2px;
 }

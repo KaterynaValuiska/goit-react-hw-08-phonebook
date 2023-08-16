@@ -16,35 +16,38 @@ const Login = () => {
     form.reset();
   };
   return (
-    <form onSubmit={handleSubmit} className="FormRegister" autoComplete="off">
-      <div className="mb-3">
-        <label htmlFor="exampleFormControlInput1" className="form-label">
-          Email address
-          <input
-            type="email"
-            name="email"
-            className="form-control"
-            id="exampleFormControlInput1"
-            aria-describedby="emailHelp"
-          />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password{' '}
-          <input
-            type="password"
-            name="password"
-            required
-            aria-describedby="passwordHelpBlock"
-            className="form-control"
-          />
-        </label>
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Log In
-      </button>
-    </form>
+    <div className="FormRegister">
+      <h2>Login to personal page</h2>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Email address
+            <input
+              type="email"
+              name="email"
+              className="form-control"
+              id="exampleFormControlInput1"
+              aria-describedby="emailHelp"
+            />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            Password{' '}
+            <input
+              type="password"
+              name="password"
+              required
+              aria-describedby="passwordHelpBlock"
+              className="form-control"
+            />
+          </label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Log In
+        </button>
+      </form>
+    </div>
   );
 };
 

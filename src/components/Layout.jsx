@@ -4,6 +4,7 @@ import UserMenu from './UserMenu';
 import '../index.css';
 import { Navigation } from './Navigation';
 import { useSelector } from 'react-redux';
+import { Suspense } from 'react';
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -30,7 +31,9 @@ const Layout = () => {
         )}
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );
