@@ -9,7 +9,7 @@ import { ThemeContext, themes } from './ThemeContext';
 import Toggle from '../components/Togle/index';
 
 const StyledLink = styled(NavLink)`
-  color: black;
+  color: var(--color);
   text-decoration: none;
 
   &.active {
