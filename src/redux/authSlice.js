@@ -6,6 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -34,6 +35,7 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
+
     [refreshUser.pending](state) {
       state.isRefreshing = true;
     },

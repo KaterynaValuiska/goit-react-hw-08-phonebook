@@ -9,12 +9,18 @@ export default function ItemContact({ id, name, number, onClose }) {
     e.preventDefault();
     const form = e.target;
     const nameContact = e.target.elements.name.value;
+    const numberContact = e.target.elements.number.value;
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === nameContact.toLowerCase()
       )
     ) {
       alert(`${nameContact} is already in contacts.`);
+      return;
+    }
+
+    if (contacts.find(contact => contact.number === numberContact)) {
+      alert(`This number: ${numberContact} is already in contacts.`);
       return;
     }
     dispatch(

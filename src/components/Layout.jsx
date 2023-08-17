@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { Suspense } from 'react';
 import { ThemeContext, themes } from './ThemeContext';
 import Toggle from '../components/Togle/index';
+import Loader from './Loader';
 
 const StyledLink = styled(NavLink)`
   color: var(--color);
@@ -18,7 +19,7 @@ const StyledLink = styled(NavLink)`
 `;
 
 const Layout = () => {
-  const { isLoggedIn } = useSelector(state => state.auth);
+  const { isLoggedIn, isLoading } = useSelector(state => state.auth);
   return (
     <div className="Main">
       <header className=" HeaderNav">
@@ -46,6 +47,7 @@ const Layout = () => {
         )}
       </header>
       <main>
+        {isLoading && <Loader />}
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>

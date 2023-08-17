@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import NewContact from '../components/NewContact';
 import { Modal } from 'components/Modal';
 import ItemContact from 'components/ItemContact';
+import Loader from 'components/Loader';
 
 function Contacts() {
   const [showModal, setShowModal] = useState(false);
@@ -36,7 +37,7 @@ function Contacts() {
       <div>
         <h2>Your contacts</h2>
 
-        <div>{isLoading && 'Request in progress...'}</div>
+        <div>{isLoading && <Loader />}</div>
         {Array.isArray(items) && items.length <= 0 && (
           <p> There are no contacts. You can add your contacts. </p>
         )}
