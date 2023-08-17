@@ -18,10 +18,16 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
+    [register.rejected]() {
+      alert('Check the entered data');
+    },
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+    },
+    [logIn.rejected]() {
+      alert('Check the entered data');
     },
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };

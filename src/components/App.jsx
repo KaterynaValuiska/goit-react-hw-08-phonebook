@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './Layout';
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,6 +44,7 @@ export const App = () => {
           }
         />
       </Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

@@ -8,7 +8,9 @@ export const Modal = ({ onClose, children }) => {
   useEffect(() => {
     const handleEsc = evt => {
       if (evt.code === 'Escape') {
-        onClose();
+        alert(
+          'Are you sure you have already changed your contact? If so, click on the button "Change contact".'
+        );
       }
     };
     window.addEventListener('keydown', handleEsc);
@@ -19,7 +21,9 @@ export const Modal = ({ onClose, children }) => {
 
   const handleOverlay = evt => {
     if (evt.currentTarget === evt.target) {
-      onClose();
+      alert(
+        'Are you sure you have already changed your contact? If so, click on the button "Change contact".'
+      );
     }
   };
 

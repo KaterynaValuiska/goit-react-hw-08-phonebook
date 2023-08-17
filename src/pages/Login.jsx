@@ -13,7 +13,6 @@ const Login = () => {
         password: form.elements.password.value,
       })
     );
-    form.reset();
   };
   return (
     <div className="FormRegister">

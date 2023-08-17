@@ -1,12 +1,22 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateContact } from 'redux/contactOperations';
 
 export default function ItemContact({ id, name, number, onClose }) {
+  const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
+    const nameContact = e.target.elements.name.value;
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === nameContact.toLowerCase()
+      )
+    ) {
+      alert(`${nameContact} is already in contacts.`);
+      return;
+    }
     dispatch(
       updateContact({
         contactId: id,
